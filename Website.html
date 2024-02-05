@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Image Renderer</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Image Renderer</h1>
+    <div class="import-images">
+      <label for="albedo-input">Albedo:</label>
+      <input type="file" id="albedo-input" accept="image/*" multiple directory webkitdirectory autocomplete="off">
+      <label for="z-depth-input">Z Depth:</label>
+      <input type="file" id="z-depth-input" accept="image/*" multiple directory webkitdirectory autocomplete="off">
+    </div>
+    <canvas id="canvas"></canvas>
+    <label for="depth-slider">Depth:</label>
+    <div class="individual-slider">
+      <input type="range" id="depth-slider" min="-1" max="1" step="0.1" value="0" autocomplete="off">
+      <button id="reset-depth"><i class="fa fa-rotate-left"></i></button>
+    </div>
+    <label for="intensity-slider">Intensity:</label>
+    <div class="individual-slider">
+      <input type="range" id="intensity-slider" min="-3" max="3" step="0.01" value="0" autocomplete="off">
+      <button id="reset-intensity"><i class="fa fa-rotate-left"></i></button>
+    </div>
+    <label for="contrast-slider">Contrast (Z Depth):</label>
+    <div class="individual-slider">
+      <input type="range" id="contrast-slider" min="-1" max="1" step="0.1" value="0" autocomplete="off">
+      <button id="reset-contrast"><i class="fa fa-rotate-left"></i></button>
+    </div>
+    <label for="gamma-slider">Gamma (Z Depth):</label>
+    <div class="individual-slider">
+      <input type="range" id="gamma-slider" min="0" max="2" step="0.1" value="1" autocomplete="off">
+      <button id="reset-gamma"><i class="fa fa-rotate-left"></i></button>    
+    </div>
+    <div id="navigation-section">
+      <button disabled=true class="button" id="move-left" autocomplete="off">&lt</button>
+      <button disabled=true class="button" id="render-button" autocomplete="off">Render</button>
+      <button disabled=true class="button" id="move-right" autocomplete="off">&gt</button>
+      <input type="checkbox" id="real-time-rendering-toggle" onclick="toggleRealTimeRendering()">
+      <label for="real-time-rendering-toggle">Real Time Rendering</label> 
+    </div>
+
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="ImageEditor.js"></script>
+</body>
+
+</html>
